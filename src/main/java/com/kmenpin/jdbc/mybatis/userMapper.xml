@@ -3,6 +3,6 @@
 <mapper namespace="com.kmenpin.jdbc.mybatis.GetUserInfo">
 	<select id="getUser" parameterType="int" 
 		resultType="com.kmenpin.jdbc.mybatis.User">
-			select id, user_name, corp from user where id = #{id}
+			select id, userName, corp from user where id = #{id}
 	</select>
 </mapper>

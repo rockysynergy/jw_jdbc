@@ -4,7 +4,7 @@
 	<insert id="addUser"
 		parameterType="com.kmenpin.jdbc.mybatis.User" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into user (user_name, corp) values (#{userName},
+		insert into user (userName, corp) values (#{userName},
 		#{corp})
 	</insert>
 	<select id="getUser" parameterType="int"

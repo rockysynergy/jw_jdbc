@@ -4,6 +4,6 @@ import org.apache.ibatis.annotations.Select;
 
 public interface GetUserInfoAnnotation {
 	
-	@Select("select id, user_name, corp from user where id = #{id}")
+	@Select("select id, userName, corp from user where id = #{id}")
 	public User getUser(int id);
 }

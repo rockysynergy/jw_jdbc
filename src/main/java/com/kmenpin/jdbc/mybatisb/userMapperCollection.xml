@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kmenpin.jdbc.mybatisb.UserOp">
+	<select id="getUser" parameterType="int" 
+		resultMap="UserMap">
+			select  
+				u.id as userId, courseName, userName, corp, c.id as courseId, teacher.id as teacherId, teacherName 
+			from user u 
+			left join user_course uc on u.id = uc.user_id
+			left join course c on c.id = uc.course_id 
+			left join teacher on teacher.id = c.teacher_id
+			where u.id = #{id}
+	</select>
+	
+	<resultMap id="UserMap"
+		type="com.kmenpin.jdbc.mybatisb.User">
+		<constructor>
+			<idArg column="userId" javaType="int" />
+			<arg column="userName" javaType="String" />
+			<arg column="corp" javaType="String" />
+		</constructor>
+		<collection property="courses"
+			ofType="com.kmenpin.jdbc.mybatisb.Course">
+			<id property="id" column="courseId" />
+			<result property="courseName" column="courseName" />
+			<association property="teacher" column="teacher_id"
+				javaType="com.kmenpin.jdbc.mybatisb.Teacher">
+				<id property="id" column="teacherId" />
+				<result property="teacherName" column="teacherName" />
+			</association>
+		</collection>
+	</resultMap>
+</mapper>

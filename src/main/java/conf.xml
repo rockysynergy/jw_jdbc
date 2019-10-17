@@ -14,7 +14,12 @@
 		</environment>
 	</environments>
 	<mappers>
+	<!-- 
 		<mapper resource="com/kmenpin/jdbc/mybatis/userMapper.xml" />
 		<mapper resource="com/kmenpin/jdbc/mybatis/userMapperMoreOp.xml" />
+		<mapper resource="com/kmenpin/jdbc/mybatisb/userMapperConstructor.xml" />
+	 -->
+		<mapper resource="com/kmenpin/jdbc/mybatisb/userMapperCollection.xml" />
+		
 	</mappers>
 </configuration>
